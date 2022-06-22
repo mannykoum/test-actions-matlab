@@ -1,0 +1,22 @@
+name: test matlab cmd
+
+on:
+    push:
+        branches: [ main ]
+    pull:
+        branches: [ main ]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+        - uses: actions/checkout@v3
+
+        - name: setup matlab
+          uses: matlab-actions/setup-matlab@v1.0.1
+
+        - name: run matlab script
+          uses: matlab-actions/run-command@v1
+            with:
+                command: test 
